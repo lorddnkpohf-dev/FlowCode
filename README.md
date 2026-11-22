@@ -166,6 +166,16 @@ SuperGram provides Telegram tools. Connect an account only on a trusted computer
 - Auto approve and Full access disable action confirmations; use them carefully.
 - Phone control uses a local network server. Do not share its control link and use it only on a trusted network.
 
+## Проверка антивирусами / Antivirus scan results
+
+Источник результатов: [VirusTotal](https://www.virustotal.com/) (по информации пользователя). Перечисленные ниже движки показали `Undetected`. Результат `Unable to process file type` означает, что движок не смог проверить файл, а не то, что файл признан чистым. Ссылка на конкретный отчёт, имя файла, его хеш и дата проверки не предоставлены, поэтому эти результаты не подтверждают проверку конкретной версии FlowCode или EXE. Отсутствие срабатываний не гарантирует безопасность файла; результаты могут меняться.
+
+Source: [VirusTotal](https://www.virustotal.com/) (as reported by the user). The engines listed below returned `Undetected`. `Unable to process file type` means an engine could not scan the file; it is not a clean verdict. The specific report URL, filename, file hash, and scan date were not provided, so these results do not confirm a scan of any specific FlowCode build or EXE. No detections do not guarantee that a file is safe, and results may change.
+
+**Undetected:** Acronis (Static ML), AhnLab-V3, Alibaba, AliCloud, ALYac, Antiy-AVL, Arcabit, Arctic Wolf, Avast, AVG, Avira (no cloud), BitDefender, Bkav Pro, ClamAV, CMC, CrowdStrike Falcon, CTX, Cynet, DrWeb, Emsisoft, eScan, ESET-NOD32, Fortinet, GData, Google, Gridinsoft (no cloud), Huorong, Ikarus, Jiangmin, K7AntiVirus, K7GW, Kaspersky, Kingsoft, Lionic, Malwarebytes, MaxSecure, McAfee Scanner, Microsoft, NANO-Antivirus, Palo Alto Networks, Panda, QuickHeal, Rising, Sangfor Engine Zero, SecureAge, SentinelOne (Static ML), Skyhigh (SWG), Sophos, SUPERAntiSpyware, Symantec, TACHYON, TEHTRIS, Tencent, Trapmine, Trellix ENS, TrendMicro, TrendMicro-HouseCall, Varist, VBA32, VIPRE, VirIT, ViRobot, Webroot, WithSecure, Xcitium, Yandex, Zillya, ZoneAlarm by Check Point, Zoner.
+
+**Unable to process file type:** BitDefenderFalx, Elastic, Symantec Mobile Insight, Trustlook, DeepInstinct.
+
 ### License and rights
 
 FlowCode is not open-source software. Its source code, application, and related materials are proprietary. This README does not grant a license to use, copy, modify, or distribute them. Contact the project owner for permission.
