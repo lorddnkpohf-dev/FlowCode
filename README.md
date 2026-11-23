@@ -2,8 +2,6 @@
 
 [Русский](#русский) | [English](#english)
 
-![FlowCode](assets/screenshots/hero-dark.png)
-
 FlowCode — настольный AI-агент для разработки. Он работает с выбранной папкой проекта: читает и редактирует файлы, выполняет команды, запускает проверки и подключается к дополнительным инструментам.
 
 ## Русский
@@ -11,7 +9,6 @@ FlowCode — настольный AI-агент для разработки. О�
 ### Возможности
 
 - Подключение моделей Kilo, Moonshot/Kimi, Ollama, LM Studio, OpenRouter и совместимых API.
-- Режим **Auto model (free)** через Kilo, который маршрутизирует запросы среди доступных бесплатных моделей.
 - Работа с локальными моделями через Ollama и LM Studio.
 - Редактирование файлов, запуск команд, поиск по проекту и проверка изменений.
 - Кнопка **Test & fix** для поиска ошибок, исправления и повторного запуска проверок.
@@ -20,13 +17,9 @@ FlowCode — настольный AI-агент для разработки. О�
 - Дополнительный SuperGram-плагин для работы с Telegram.
 - Управление с телефона по локальной сети.
 
-### Для пользователей: скачать и установить
-
-Обычным пользователям не нужно собирать FlowCode из исходников. Готовый установщик Windows опубликован в [релизе v0.1.0](https://github.com/lorddnkpohf-dev/FlowCode/releases/tag/v0.1.0) как предварительная версия. Скачайте `FlowCode.Setup.0.1.0.exe` в разделе **Assets**.
-
 ### Запуск для авторизованных разработчиков
 
-FlowCode — закрытый проприетарный проект. Публичная видимость репозитория не означает, что исходный код распространяется под open-source лицензией. Собирать приложение из исходников могут только авторизованные разработчики.
+FlowCode — закрытый проприетарный проект. Исходный код доступен только лицам, которым владелец проекта предоставил доступ. Не клонируйте публичный репозиторий: исходники не распространяются как open source.
 
 Для разработки требуются Windows x64, Node.js и npm. В авторизованной копии проекта выполните:
 
@@ -42,8 +35,6 @@ npm start -- --smoke
 ```
 
 При первом запуске откройте папку проекта через **Open project folder** и настройте провайдера и модель в **Settings → Model**. Для провайдеров с авторизацией укажите API key. Для Ollama или LM Studio сначала запустите соответствующий локальный сервер.
-
-Kilo Auto Free использует маршрутизацию Kilo и не обходит ограничения провайдера. При сетевой ошибке или ответе `5xx` FlowCode один раз попробует резервную бесплатную модель Kilo и покажет переключение. Автоматического переключения для обхода `429` или ошибок авторизации нет. Если Kilo просит зарегистрироваться, потребуется аккаунт/API key Kilo либо ожидание сброса лимита.
 
 ### Режимы
 
@@ -102,7 +93,6 @@ FlowCode is a desktop AI coding agent. It works with a selected project folder t
 ### Features
 
 - Connects to Kilo, Moonshot/Kimi, Ollama, LM Studio, OpenRouter, and compatible APIs.
-- Includes **Auto model (free)** through Kilo, which routes requests across available free models.
 - Supports local models through Ollama and LM Studio.
 - Edits files, runs commands, searches projects, and checks changes.
 - **Test & fix** can find issues, apply fixes, and rerun checks.
@@ -111,13 +101,9 @@ FlowCode is a desktop AI coding agent. It works with a selected project folder t
 - Includes the optional SuperGram plugin for Telegram.
 - Supports phone control over a local network.
 
-### For users: download and install
-
-Regular users do not need to build FlowCode from source. The Windows installer is published as a pre-release in [release v0.1.0](https://github.com/lorddnkpohf-dev/FlowCode/releases/tag/v0.1.0). Download `FlowCode.Setup.0.1.0.exe` from the **Assets** section.
-
 ### Running from an authorized checkout
 
-FlowCode is proprietary closed-source software. A publicly visible repository does not mean its source code is distributed under an open-source license. Only authorized developers may build the app from source.
+FlowCode is proprietary closed-source software. Source code is available only to people granted access by the project owner. Do not clone a public repository expecting open-source source code.
 
 Development requires Windows x64, Node.js, and npm. From an authorized project checkout, run:
 
@@ -133,8 +119,6 @@ npm start -- --smoke
 ```
 
 On first launch, open a project folder with **Open project folder** and configure a provider and model under **Settings → Model**. Enter an API key for providers that require authentication. Start the relevant local server before using Ollama or LM Studio.
-
-Kilo Auto Free uses Kilo's own routing and does not bypass provider limits. On a network failure or `5xx` response, FlowCode tries one alternate free Kilo model and reports the switch. It does not automatically switch models to bypass `429` or authentication errors. If Kilo asks you to register, a Kilo account/API key or waiting for the limit to reset may be required.
 
 ### Modes
 
@@ -195,64 +179,3 @@ Source: [VirusTotal](https://www.virustotal.com/) (as reported by the user). The
 ### License and rights
 
 FlowCode is not open-source software. Its source code, application, and related materials are proprietary. This README does not grant a license to use, copy, modify, or distribute them. Contact the project owner for permission.
-
-## Репозиторий / GitHub repository
-
-Официальная страница проекта: [lorddnkpohf-dev/FlowCode](https://github.com/lorddnkpohf-dev/FlowCode).
-
-Official project page: [lorddnkpohf-dev/FlowCode](https://github.com/lorddnkpohf-dev/FlowCode).
-
-## Изображения / Screenshots
-
-| Dark | Light |
-| --- | --- |
-| ![FlowCode dark](assets/screenshots/hero-dark.png) | ![FlowCode light](assets/screenshots/hero-light.png) |
-
-| Start | Settings |
-| --- | --- |
-| ![Start screen](assets/screenshots/start.png) | ![Settings](assets/screenshots/settings.png) |
-
-| Permissions | Models |
-| --- | --- |
-| ![Agent permission](assets/screenshots/settings-permission.png) | ![Model menu](assets/screenshots/models.png) |
-
-| Chat |
-| --- |
-| ![Conversation](assets/screenshots/chat.png) |
-
-## Логотип / Logo
-
-![FlowCode mark](assets/logo-dark.png)
-
-## Участие / Contributing
-
-FlowCode — проприетарный проект. Исходный код не публикуется, но внести улучшения в документацию, визуальный дизайн и шаблоны репозитория может любой. Открой issue или pull request с предложением.
-
-- Дизайн: чёрно-белая палитра, соответствующая логотипу. Цвета, градиенты и «радужные» акценты не используются.
-- Иконки: Icons8. Каждый элемент интерфейса использует свою иконку, повторения нет.
-- Стиль: минимализм, близкий к iPhone.
-
-### Для разработчиков
-
-```powershell
-npm ci
-npm test
-npm start
-```
-
-## Безопасность / Security
-
-Сообщайте о уязвимостях через issue, не раскрывая детали публично. API-ключ и настройки хранятся локально — не коммитьте их в Git.
-
-## Журнал изменений / Changelog
-
-### v0.1.1
-
-- Минималистичный премиальный интерфейс в чёрно-белой палитре по логотипу.
-- Светлая и тёмная темы с сохранением настроек.
-- Обновлённые иконки Icons8 без повторов.
-- Добавлены скриншоты, CI-пайплайн и шаблоны репозитория.
-
-### v0.1.0
-
-- Первый релиз: десктопный AI-агент с редактированием файлов, выполнением команд, проверками и поддержкой MCP/плагинов.
