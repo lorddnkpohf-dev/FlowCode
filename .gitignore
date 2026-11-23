@@ -1,0 +1,33 @@
+# Build artifacts
+dist/
+dist-electron/
+build/
+*.exe
+*.msi
+*.dmg
+*.AppImage
+*.asar
+
+# Node
+node_modules/
+
+# Local tooling (screenshots, demo project, scripts)
+.local-tools/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Electron crash logs
+crash dumps/
+
+# Secrets
+*.pem
+*.key
+*.p12
+config.json
+flowcode.json
