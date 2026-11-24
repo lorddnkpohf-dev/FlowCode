@@ -510,6 +510,10 @@ body.side-collapsed #sidebar { margin-left: -268px; opacity: 0; pointer-events: 
   margin: 22px 0 0;
   font: 600 30px/1.1 var(--font-display);
   letter-spacing: -.035em;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 #start p {
   position: relative;
@@ -519,6 +523,9 @@ body.side-collapsed #sidebar { margin-left: -268px; opacity: 0; pointer-events: 
   color: var(--text-2);
   font-size: 14px;
   line-height: 1.6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .open-btn {
   position: relative;
