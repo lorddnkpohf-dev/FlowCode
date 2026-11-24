@@ -2,6 +2,8 @@
 
 FlowCode is proprietary. The source code is not open source and is not distributed under an open-source license.
 
+Only the prebuilt installer is published for end users. The public repository contains documentation, design assets, and templates — not buildable source.
+
 You may contribute to:
 
 - Documentation (README, guides, translations).

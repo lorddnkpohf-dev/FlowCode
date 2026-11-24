@@ -53,17 +53,6 @@ npm start -- --smoke
 
 Режим можно переключить в настройках или прямо в строке чата, в том числе во время выполнения. При выборе Auto approve или Full access уже ожидающие подтверждения в текущем запуске разрешаются.
 
-### Сборка Windows EXE
-
-Только для авторизованных разработчиков с доступом к исходному коду:
-
-```powershell
-npm ci
-npm run build:win
-```
-
-Установщик NSIS появится в `dist/FlowCode Setup 0.1.0.exe`. Portable-версия будет в `dist/win-unpacked/FlowCode.exe`. Сборка не подписывается сертификатом разработчика, поэтому Windows может показать предупреждение SmartScreen.
-
 ### Мастер-промпт `.Flow`
 
 В **Settings → Master prompt** можно задать инструкции вручную или загрузить `.Flow`-файл. Поддерживаются секции с заголовками `@section`; строки, начинающиеся с `//`, `;` или `#`, считаются комментариями.
@@ -136,17 +125,6 @@ These modes change the agent's instructions and style; they do not disable requi
 - **Auto approve** and **Full access** currently both skip approval for tool calls and do not differ functionally.
 
 You can change the mode in Settings or directly in the chat input, including while a task is running. Selecting Auto approve or Full access also resolves approvals already waiting in the current run.
-
-### Building the Windows EXE
-
-For authorized developers with access to the source code only:
-
-```powershell
-npm ci
-npm run build:win
-```
-
-The NSIS installer is generated at `dist/FlowCode Setup 0.1.0.exe`. The portable build is generated at `dist/win-unpacked/FlowCode.exe`. The build is not signed with a developer certificate, so Windows SmartScreen may show a warning.
 
 ### `.Flow` master prompt
 
