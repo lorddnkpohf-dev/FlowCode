@@ -472,8 +472,28 @@ body.side-collapsed #sidebar { margin-left: -268px; opacity: 0; pointer-events: 
   background: radial-gradient(circle, var(--glow-1), transparent 62%);
   pointer-events: none;
 }
-.agent-start-mascot {
+.agent-start-mascot-wrap {
   position: relative;
+  width: 126px;
+  height: 126px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.agent-start-mascot-wrap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 170px;
+  height: 170px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, .04) 0%, rgba(255, 255, 255, .015) 35%, transparent 65%);
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 50%;
+}
+.agent-start-mascot {
   width: 126px;
   height: 126px;
   object-fit: contain;
@@ -567,6 +587,19 @@ body.side-collapsed #sidebar { margin-left: -268px; opacity: 0; pointer-events: 
   pointer-events: none;
   user-select: none;
   opacity: .9;
+}
+.chat-mascot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, .035) 0%, rgba(255, 255, 255, .015) 35%, transparent 65%);
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 50%;
 }
 .chat-mascot img {
   width: 104px;

@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:">
+  <meta name="color-scheme" content="dark light">
+  <title>FlowCode</title>
+  <link rel="icon" href="logo.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="shell">
+    <aside id="sidebar">
+      <div class="side-brand">
+        <img class="side-logo" src="logo.png" alt="">
+        <span class="side-brand-text">FlowCode</span>
+      </div>
+      <button id="sideNew" class="side-new">
+        <span class="ico i-plus"></span>
+        <span>New chat</span>
+      </button>
+      <div class="side-scroll">
+        <div class="side-label">Projects</div>
+        <div id="sideProjects" class="side-list"></div>
+        <div class="side-label">Recents</div>
+        <div id="sideRecents" class="side-list"></div>
+      </div>
+      <div class="side-foot-wrap">
+        <button id="sideSettings" class="side-foot">
+          <span class="ico i-gear"></span>
+          <span>Settings</span>
+          <span class="side-foot-meta">v0.1.0</span>
+        </button>
+      </div>
+    </aside>
+
+    <div id="column">
+      <header id="topbar">
+        <button id="sideToggle" class="icon" title="Toggle sidebar" aria-label="Toggle sidebar"><span class="ico i-menu"></span></button>
+        <button id="cwdBtn" class="chip chip-cwd" title="Change project folder"></button>
+        <div class="spacer"></div>
+        <span id="dot" class="dot idle" title="Agent status"></span>
+        <button id="themeBtn" class="icon" title="Appearance" aria-label="Appearance"><span class="ico i-moon"></span></button>
+        <button id="phoneBtn" class="icon" title="Control from your phone" aria-label="Phone control"><span class="ico i-phone"></span></button>
+        <button id="newBtn" class="icon" title="New chat" aria-label="New chat"><span class="ico i-newchat"></span></button>
+      </header>
+
+      <section id="start" class="hidden">
+        <div class="start-glow" aria-hidden="true"></div>
+        <div class="agent-start-mascot-wrap">
+          <img src="agents/mono-works.png" class="agent-start-mascot" alt="Mono, your coding agent">
+        </div>
+        <h2>What are we building?</h2>
+        <p>Open a project folder and Mono will read, edit and run it with you — asking before anything risky.</p>
+        <button id="openProject" class="open-btn"><span class="ico i-folder-open"></span>Open project folder</button>
+        <div class="start-tips"><span>Local-first</span><i></i><span>Windows</span><i></i><span>Bring your own model</span></div>
+      </section>
+
+      <div id="chatStage" class="hidden">
+        <main id="chat"></main>
+        <div id="chatMascot" class="chat-mascot" aria-label="Mono, your coding agent">
+          <img id="chatMascotImage" src="agents/mono.png" alt="">
+          <span>Mono</span>
+        </div>
+      </div>
+
+      <footer id="composer">
+        <div id="appStrip" class="hidden"></div>
+        <div id="composerCard">
+          <textarea id="input" rows="1" placeholder="Ask Mono to build, fix or explain…"></textarea>
+          <div id="composerRow">
+            <button id="modelPicker" class="picker" title="Choose model">
+              <span class="ico i-sparkles sm"></span>
+              <span id="pickerLabel">Auto model (free)</span><span class="ico i-down picker-caret"></span>
+            </button>
+            <button id="permissionBtn" class="permission-btn" title="Agent permission mode">
+              <span id="permissionDot" class="permission-dot"></span>
+              <span id="permissionLabel">Ask every time</span>
+              <span class="ico i-down picker-caret"></span>
+            </button>
+            <button id="appStripToggle" class="app-strip-toggle hidden" title="Show apps">
+              <span class="ico i-grid"></span>
+            </button>
+            <button id="testFixBtn" class="test-fix-btn" title="Test and fix the project">
+              <span class="ico i-command"></span>
+              <span>Test &amp; fix</span>
+            </button>
+            <span id="status">Ready</span>
+            <div class="spacer"></div>
+            <button id="stopBtn" class="round ghost hidden" title="Stop"><span class="ico i-stop"></span></button>
+            <button id="sendBtn" class="round primary" title="Send"><span class="ico i-up"></span></button>
+          </div>
+        </div>
+        <div id="hint">Enter to send · Shift + Enter for a new line</div>
+        <div id="modelMenu" class="menu hidden"></div>
+        <div id="permissionMenu" class="permission-menu menu hidden"></div>
+      </footer>
+    </div>
+  </div>
+
+  <div id="settings" class="overlay hidden">
+    <div class="modal settings">
+      <aside class="set-nav">
+        <div class="set-title">Settings</div>
+        <div id="cfgTabs">
+          <button type="button" class="tab active" data-tab="model">
+            <span class="ico i-chip"></span>
+            <span>Model</span>
+          </button>
+          <button type="button" class="tab" data-tab="prompt">
+            <span class="ico i-note"></span>
+            <span>Master prompt</span>
+          </button>
+          <button type="button" class="tab" data-tab="mcp">
+            <span class="ico i-plug"></span>
+            <span>MCP tools</span>
+          </button>
+          <button type="button" class="tab" data-tab="plugins">
+            <span class="ico i-puzzle"></span>
+            <span>Plugins</span>
+          </button>
+        </div>
+        <div class="set-nav-foot">
+          <a class="set-nav-github" href="https://github.com/lorddnkpohf-dev/FlowCode" target="_blank" rel="noopener noreferrer" aria-label="Open FlowCode on GitHub" title="Open FlowCode on GitHub">
+            <span class="ico i-github" aria-hidden="true"></span>
+          </a>
+          <div class="set-nav-credit">FlowCode 0.1.0 · icons by <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer">Icons8</a></div>
+        </div>
+      </aside>
+
+      <section class="set-main">
+        <button id="cfgClose" class="set-close" type="button" title="Close"><span class="ico i-close"></span></button>
+        <div class="set-body">
+          <div class="tab-pane" id="pane-model">
+            <header class="set-head">
+              <h4>Model</h4>
+              <p class="set-desc">Choose where the assistant runs and how far it can go on its own.</p>
+            </header>
+
+            <div class="set-group">
+              <div class="set-row">
+                <div class="set-label">Provider</div>
+                <div class="dd" id="presetDD">
+                  <button type="button" class="dd-btn" id="presetBtn" aria-haspopup="listbox" aria-expanded="false">
+                    <span id="presetLabel">Kilo Free (account may be required)</span>
+                    <span class="ico i-down picker-caret"></span>
+                  </button>
+                  <div class="dd-menu" id="presetMenu" role="listbox"></div>
+                </div>
+                <select id="preset" class="hidden" tabindex="-1" aria-hidden="true">
+                  <option value="kilo">Kilo Free (account may be required)</option>
+                  <option value="kimi">Kimi (Moonshot)</option>
+                  <option value="ollama">Ollama (local)</option>
+                  <option value="lmstudio">LM Studio (local)</option>
+                  <option value="openrouter">OpenRouter</option>
+                  <option value="custom">Custom</option>
+                </select>
+              </div>
+              <div class="set-row">
+                <div class="set-label">API base URL</div>
+                <input id="baseUrl" spellcheck="false" placeholder="https://ai-gateway.kilo.ai/api/v1">
+              </div>
+              <div class="set-row">
+                <div class="set-label">API key<small>Kilo may require an account/key; local servers do not</small></div>
+                <input id="apiKey" type="password" spellcheck="false" placeholder="sk-…">
+              </div>
+              <div class="set-row">
+                <div class="set-label">Model</div>
+                <div class="set-stack">
+                  <input id="model" spellcheck="false" list="models" placeholder="model id">
+                  <button id="loadModels" type="button"><span class="ico i-refresh sm"></span>Load models</button>
+                  <small id="modelsHint"></small>
+                </div>
+                <datalist id="models"></datalist>
+              </div>
+            </div>
+
+            <div class="set-group">
+              <div class="set-row">
+                <div class="set-label">Max agent steps<small>Tool calls allowed per run (up to 1000)</small></div>
+                <input id="maxSteps" class="num" type="number" min="1" max="1000">
+              </div>
+              <div class="set-row">
+                <div class="set-label">Long-run mode<small>Plans with a todo list and keeps working for hours, compacting its own context</small></div>
+                <input id="longRun" type="checkbox">
+              </div>
+              <div class="set-row">
+                <div class="set-label">Run budget<small>Minutes per run when long-run is on</small></div>
+                <input id="runMinutes" class="num" type="number" min="5" max="720">
+              </div>
+            </div>
+
+            <div class="permission-section">
+              <div class="permission-heading">
+                <div>Agent permission</div>
+                <small>Choose how the agent may act</small>
+              </div>
+              <div class="permission-options" id="permissionOptions">
+                <label class="permission-card" data-mode="ask">
+                  <input type="radio" name="permissionMode" value="ask">
+                  <span class="permission-icon" aria-hidden="true"><span class="ico i-approval"></span></span>
+                  <span class="permission-copy">
+                    <strong>Ask every time</strong>
+                    <small>Always ask before commands, edits and external access</small>
+                  </span>
+                  <span class="permission-check" aria-hidden="true"></span>
+                </label>
+                <label class="permission-card" data-mode="auto">
+                  <input type="radio" name="permissionMode" value="auto">
+                  <span class="permission-icon" aria-hidden="true"><span class="ico i-checkmark"></span></span>
+                  <span class="permission-copy">
+                    <strong>Auto approve</strong>
+                    <small>Approve low-risk actions automatically</small>
+                  </span>
+                  <span class="permission-check" aria-hidden="true"></span>
+                </label>
+                <label class="permission-card" data-mode="full">
+                  <input type="radio" name="permissionMode" value="full">
+                  <span class="permission-icon danger" aria-hidden="true"><span class="ico i-shield"></span></span>
+                  <span class="permission-copy">
+                    <strong>Full access</strong>
+                    <small>Skip confirmations for all actions; use with care</small>
+                  </span>
+                  <span class="permission-check" aria-hidden="true"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane hidden" id="pane-prompt">
+            <header class="set-head">
+              <h4>Master prompt</h4>
+              <p class="set-desc">Rules and tone the assistant must follow in every chat. Write them here or load a .Flow file.</p>
+            </header>
+            <div class="set-group">
+              <div class="set-row">
+                <div class="set-label">System prompt mode<small>Anti is more direct, but all modes keep safety and approval requirements</small></div>
+                <select id="promptMode">
+                  <option value="safe">Safe · strict and cautious</option>
+                  <option value="normal">Normal · balanced</option>
+                  <option value="anti">Anti · direct and creative, within safety limits</option>
+                </select>
+              </div>
+            </div>
+            <div class="flow-card hidden" id="flowCard">
+              <span class="ico i-doc"></span>
+              <div class="flow-meta">
+                <div class="flow-name" id="flowName"></div>
+                <div class="flow-path" id="flowPath"></div>
+              </div>
+              <button type="button" id="flowReload" class="mini" title="Reload file"><span class="ico i-sync sm"></span></button>
+              <button type="button" id="flowRemove" class="mini" title="Remove file"><span class="ico i-trash sm"></span></button>
+            </div>
+            <div class="flow-actions">
+              <button type="button" id="flowLoad"><span class="ico i-codefile sm"></span>Load .Flow file</button>
+              <span class="flow-hint" id="flowHint">.Flow: @section headers, // comments, one rule per line</span>
+            </div>
+            <textarea id="customPrompt" rows="13" spellcheck="false" placeholder="Describe how the assistant should talk, what it should always do or never do…"></textarea>
+          </div>
+
+          <div class="tab-pane hidden" id="pane-mcp">
+            <header class="set-head">
+              <h4>MCP tools</h4>
+              <p class="set-desc">Servers start with the app and expose their tools to the agent. MCP tools ask for approval unless auto-approve is on.</p>
+            </header>
+            <div class="mcp-list" id="mcpList"></div>
+            <div class="mcp-add">
+              <input id="mcpName" spellcheck="false" placeholder="Name, e.g. files">
+              <input id="mcpCmd" spellcheck="false" placeholder="Command, e.g. npx -y @modelcontextprotocol/server-filesystem C:\work">
+            </div>
+            <button id="mcpAdd" type="button"><span class="ico i-server-add sm"></span>Add MCP server</button>
+          </div>
+
+          <div class="tab-pane hidden" id="pane-plugins">
+            <header class="set-head">
+              <h4>Plugins</h4>
+              <p class="set-desc">Drop a folder with plugin.json into the plugins directory. Disabled plugins and their tools are hidden from the agent.</p>
+            </header>
+            <div class="plugin-list" id="pluginList"></div>
+            <p class="set-desc">SuperGram signs in with your phone number and a code Telegram sends you. The session stays on this computer.</p>
+          </div>
+        </div>
+        <footer class="set-foot">
+          <button id="cancelCfg">Cancel</button>
+          <button id="saveCfg" class="primary">Save</button>
+        </footer>
+      </section>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
