@@ -507,7 +507,7 @@ body.side-collapsed #sidebar { margin-left: -268px; opacity: 0; pointer-events: 
 }
 #start h2 {
   position: relative;
-  margin: 22px 0 0;
+  margin: 8px 0 0;
   font: 600 30px/1.1 var(--font-display);
   letter-spacing: -.035em;
   max-width: 100%;
